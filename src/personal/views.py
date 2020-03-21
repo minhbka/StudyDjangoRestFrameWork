@@ -6,7 +6,7 @@ from blog.views import get_blog_queryset
 from blog.models import BlogPost
 
 # Create your views here.
-BLOG_POSTS_PER_PAGE = 1
+BLOG_POSTS_PER_PAGE = 10
 
 
 def home_screen_view(request):
