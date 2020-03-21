@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import ListAPIView
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 from account.models import Account
 from blog.models import BlogPost
@@ -92,3 +93,5 @@ class ApiBlogListView(ListAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     pagination_class = PageNumberPagination
+    filter_backends = (SearchFilter, OrderingFilter)
+    search_fields = ['title', 'body', 'author__username']
