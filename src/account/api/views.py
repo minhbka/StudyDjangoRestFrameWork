@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
+from rest_framework.authtoken.models import Token
 from account.models import Account
 from account.api.serializers import RegistrationSerializer
 
@@ -15,10 +15,11 @@ def registration_view(request):
 
         if serializer.is_valid():
             account = serializer.save()
+            token = Token.objects.get(user=account).key
             data['response'] = 'successfully registered a new user.'
             data['email'] = account.email
             data['username'] = account.username
-
+            data['token'] = token
         else:
             data = serializer.errors
 
