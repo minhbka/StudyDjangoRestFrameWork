@@ -37,6 +37,9 @@ urlpatterns = [
     path('must_authenticate/', must_authenticate_view, name='must_authenticate'),
     path('register/', registration_view, name='register'),
 
+    # REST FRAMEWORK URLS
+    path('api/blog/', include('blog.api.urls', 'blog_api')),
+
 
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     path('password_change/done/',
