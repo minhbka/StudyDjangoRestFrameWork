@@ -1,5 +1,5 @@
 from django.urls import path
-from blog.api.views import api_detail_blog_view, api_update_blog_view, api_create_blog_view, api_delete_blog_view
+from blog.api.views import (api_detail_blog_view, api_update_blog_view, api_create_blog_view, api_delete_blog_view)
 
 app_name = 'blog'
 
